@@ -12,8 +12,12 @@ try:
     # Run a query
     with connection.cursor() as cursor:
         
-        sql = "DELETE FROM Friends WHERE name = 'Bob';"
-        cursor.execute(sql)
+        row = ("Bob",)
+        sql = "DELETE FROM Friends WHERE name = %s;"
+        cursor.execute(sql, row)
+        
+        # sql = "DELETE FROM Friends WHERE name = 'Bob';"
+        # cursor.execute(sql)
 
         # rows = [(24, "Bob"),(56,"Jim")]
         # sql = "UPDATE Friends SET age = %s WHERE name = %s;"
